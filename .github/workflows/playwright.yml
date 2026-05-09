@@ -25,9 +25,13 @@ jobs:
           node-version: '20'
           cache: 'npm'
 
+      # - name: Install Dependencies
+      #   run: npm install
       - name: Install Dependencies
-        run: npm install
-
+        run: |
+           npm cache clean --force
+           npm install
+           
       - name: Install Chromium Browser
         run: npx playwright install chromium --with-deps
 
